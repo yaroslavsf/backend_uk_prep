@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Product {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "product_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
     @Column
     private int quantity;

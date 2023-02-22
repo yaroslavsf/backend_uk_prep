@@ -15,7 +15,7 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
     @Column
     private String name;

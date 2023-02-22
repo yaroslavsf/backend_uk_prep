@@ -17,7 +17,7 @@ import java.util.UUID;
 public class Cart {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "cart_id", nullable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
 
     @OneToOne(fetch = FetchType.LAZY)
