@@ -1,12 +1,10 @@
 package com.example.webshop.domain.user;
 
+import com.example.webshop.domain.product.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -40,13 +38,21 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void updateUser(User user) {
-        Optional<User> userFromDb = userRepository.findById(user.getId());
-        if (!userFromDb.isPresent()) throw new NoSuchElementException();
-        // crush the variables of the object found
-        User u = userFromDb.get();
-        u.setName(user.getName());
-        u.setSurname(user.getSurname());
-        userRepository.save(u);
+    public User updateUser(User user) {
+//        Optional<User> userFromDb = userRepository.findById(user.getId());
+//        if (!userFromDb.isPresent()) throw new NoSuchElementException();
+//        // TODO: automaticaly map all fields
+//        User u = userFromDb.get();
+//        u.setName(user.getName());
+//        u.setSurname(user.getSurname());
+//        userRepository.save(u);
+//        return u;
+        return null;
+    }
+
+    @Override
+    public List<Product> getProductsById(UUID uId) {
+        User u = this.findById(uId);
+        return u.getCart().getProductsInCart().stream().toList();
     }
 }

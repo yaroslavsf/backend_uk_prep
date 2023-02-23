@@ -2,6 +2,8 @@ package com.example.webshop.domain.cart;
 
 import com.example.webshop.domain.product.Product;
 import com.example.webshop.domain.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,10 +22,13 @@ public class Cart {
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+
+//    @JsonBackReference
     @ManyToMany
     @JoinTable(
             name = "cart_product",

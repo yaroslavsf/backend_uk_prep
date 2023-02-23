@@ -1,6 +1,7 @@
 package com.example.webshop.domain.user;
 
 import com.example.webshop.domain.cart.Cart;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,11 @@ public class User {
     @Column
     private String surname;
 
+    @Column
+    private String email;
+    @Column
+    private String password;
+    @JsonManagedReference
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "user")

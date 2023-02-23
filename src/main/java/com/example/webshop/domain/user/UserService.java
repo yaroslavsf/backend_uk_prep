@@ -1,6 +1,7 @@
 package com.example.webshop.domain.user;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public interface UserService {
@@ -8,5 +9,7 @@ public interface UserService {
     User findById(UUID id);
     User save(User user);
     void deleteById(UUID id);
-    void updateUser(User user);
+    User updateUser(User user);
+
+    List getProductsById(UUID uId);
 }

@@ -1,6 +1,8 @@
 package com.example.webshop.domain.product;
 
 import com.example.webshop.domain.cart.Cart;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,13 +23,11 @@ public class Product {
     @Column(name = "id", nullable = false)
     private UUID id;
     @Column
-    private int quantity;
-    @Column
     private BigDecimal price;
     @Column
     private String name;
 
-
+//    @JsonManagedReference
     @ManyToMany(mappedBy = "productsInCart")
     Set<Cart> carts;
 
