@@ -20,7 +20,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
 public class Product {
     @Id
     @GeneratedValue(generator = "UUID")

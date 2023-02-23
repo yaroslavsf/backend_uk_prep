@@ -20,7 +20,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 
-//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
 public class Cart {
     @Id
     @GeneratedValue(generator = "UUID")
