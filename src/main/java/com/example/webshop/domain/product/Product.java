@@ -1,10 +1,7 @@
 package com.example.webshop.domain.product;
 
 import com.example.webshop.domain.cart.Cart;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
 public class Product {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -30,8 +26,13 @@ public class Product {
     private BigDecimal price;
     @Column
     private String name;
-//    @JsonBackReference
+
     @ManyToMany(mappedBy = "productsInCart")
     List<Cart> carts;
+
+    @JsonIgnore
+    public List<Cart> getCarts() {
+        return carts;
+    }
 
 }
