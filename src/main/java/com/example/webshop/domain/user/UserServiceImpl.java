@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<Product> getProductsById(UUID uId) {
         User u = this.findById(uId);
-        return u.getCart().getProductsInCart().stream().toList();
+       List<Product> products =  u.getCart().getProductsInCart().stream().toList();
+       return products;
     }
 }
