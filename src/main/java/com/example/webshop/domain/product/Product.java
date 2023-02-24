@@ -30,8 +30,7 @@ public class Product {
     private BigDecimal price;
     @Column
     private String name;
-//    @JsonBackReference
-    @ManyToMany(mappedBy = "productsInCart")
-    List<Cart> carts;
+//    @ManyToMany(mappedBy = "productsInCart")
+//    List<Cart> carts;
 
 }
