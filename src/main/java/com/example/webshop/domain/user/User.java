@@ -27,9 +27,12 @@ public class User {
     private String email;
     @Column
     private String password;
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "user")
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
+//    @OneToOne(fetch = FetchType.LAZY,
+//            cascade =  CascadeType.ALL,
+//            mappedBy = "user")
+//    private Cart cart;
 }

@@ -20,17 +20,16 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 
-//@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property="@closureId")
 public class Cart {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "id", nullable = false)
     private UUID id;
 
-    @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+//    @JsonBackReference
+//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private User user;
 
 
 //    @JsonManagedReference
